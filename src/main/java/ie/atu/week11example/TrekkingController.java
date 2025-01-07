@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/trek")
 @RestController
 public class TrekkingController {
-    private final PersonService personService;
+    private final TrekkingService trekkingService;
 
-    public TrekkingController(PersonService personService) {
-        this.personService = personService;
+    public TrekkingController(TrekkingService trekkingService) {
+        this.trekkingService = trekkingService;
     }
 
     @GetMapping("/{employeeId}")
@@ -20,7 +20,7 @@ public class TrekkingController {
             return ResponseEntity.badRequest().body("EmployeeId is invalid");
         }
 
-        Mountain mountain = personService.getPersonByEmployeeId(employeeId);
+        Mountain mountain = trekkingService.getPersonByEmployeeId(employeeId);
 
         if (mountain == null) {
             return ResponseEntity.notFound().build();
@@ -29,9 +29,9 @@ public class TrekkingController {
         return ResponseEntity.ok(mountain);
     }
 
-    @PostMapping("/createPerson")
+    @PostMapping("/addMountain")
     public ResponseEntity<String>create(@Valid @RequestBody Mountain mountain) {
-        personService.savePerson(mountain);
-        return new ResponseEntity<>("Person created successfully", HttpStatus.OK);
+        trekkingService.savePerson(mountain);
+        return new ResponseEntity<>("Mountain added successfully", HttpStatus.OK);
     }
 }
