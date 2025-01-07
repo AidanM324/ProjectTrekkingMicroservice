@@ -5,12 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/person")
+@RequestMapping("/trek")
 @RestController
-public class PersonController {
+public class TrekkingController {
     private final PersonService personService;
 
-    public PersonController(PersonService personService) {
+    public TrekkingController(PersonService personService) {
         this.personService = personService;
     }
 
