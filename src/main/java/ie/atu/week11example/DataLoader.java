@@ -17,9 +17,9 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception{
-        Mountain testData = new Mountain(1L, "Mt Everest", "RMI Expeditions", 74000, "info@rmiguides.com", "74 days", "Nepal", "Himalayas");
-        Mountain testData2 = new Mountain(2L, "Mt Toubkal", "Aztat treks", 500, "aztattreks@gmail.com", "5 days", "Morocco", "Atlas Mountains");
-        Mountain testData3 = new Mountain(3L, "Mt Mera", "MuchBetterAdventures", 3800, "muchbetteradventures@gmail.com", "14 days", "Nepal", "Himalayas");
+        Mountain testData = new Mountain(1L, "Everest", "RMI Expeditions", 74000, "info@rmiguides.com", "74 days", "Nepal", "Himalayas");
+        Mountain testData2 = new Mountain(2L, "Toubkal", "Aztat treks", 500, "aztattreks@gmail.com", "5 days", "Morocco", "Atlas Mountains");
+        Mountain testData3 = new Mountain(3L, "Mera", "MuchBetterAdventures", 3800, "muchbetteradventures@gmail.com", "14 days", "Nepal", "Himalayas");
         mountainRepository.save(testData);
         mountainRepository.save(testData2);
         mountainRepository.save(testData3);

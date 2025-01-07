@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/trek")
 @RestController
@@ -16,7 +17,7 @@ public class TrekkingController {
         this.trekkingService = trekkingService;
     }
 
-    @GetMapping("/{mountain}")
+    @GetMapping("/{mountainId}")
     public ResponseEntity<?> getMountain(@PathVariable String mountainId) {
         if (mountainId.isBlank()) {
             return ResponseEntity.badRequest().body("Mountain is invalid");
@@ -29,6 +30,21 @@ public class TrekkingController {
         }
 
         return ResponseEntity.ok(mountain);
+    }
+
+    @GetMapping("/{mountainRange}")
+    public ResponseEntity<?> getMountainRange(@PathVariable String mountainRange) {
+        if (mountainRange.isBlank()) {
+            return ResponseEntity.badRequest().body("Mountain Range is invalid");
+        }
+
+        List<Mountain> mountains = trekkingService.getMountainByMountainRange(mountainRange);
+
+        if (mountainRange == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(mountains);
     }
 
     @GetMapping("/getAllMountains")
@@ -47,5 +63,17 @@ public class TrekkingController {
     public ResponseEntity<String>create(@Valid @RequestBody Mountain mountain) {
         trekkingService.saveMountain(mountain);
         return new ResponseEntity<>("Mountain added successfully", HttpStatus.OK);
+    }
+
+    @PutMapping("/{Id}")
+    public ResponseEntity<String>updateMountain(@PathVariable Long Id, @RequestBody Mountain updatedMountain) {
+        trekkingService.updateMountain(Id, updatedMountain);
+        return new ResponseEntity<>("Mountain changed successfully", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{Id}")
+    public ResponseEntity<String>deleteMountain(@PathVariable Long Id) {
+        trekkingService.deleteMountain(Id);
+        return new ResponseEntity<>("Mountain deleted successfully", HttpStatus.OK);
     }
 }
