@@ -14,15 +14,15 @@ public class TrekkingController {
         this.trekkingService = trekkingService;
     }
 
-    @GetMapping("/{employeeId}")
-    public ResponseEntity<?> getPerson(@PathVariable String employeeId) {
-        if (employeeId.length() > 5 || employeeId.isBlank()) {
-            return ResponseEntity.badRequest().body("EmployeeId is invalid");
+    @GetMapping("/{mountain}")
+    public ResponseEntity<?> getMountain(@PathVariable String mountainId) {
+        if (mountainId.isBlank()) {
+            return ResponseEntity.badRequest().body("Mountain is invalid");
         }
 
-        Mountain mountain = trekkingService.getPersonByEmployeeId(employeeId);
+        Mountain mountain = trekkingService.getMountainByMountainId(mountainId);
 
-        if (mountain == null) {
+        if (mountainId == null) {
             return ResponseEntity.notFound().build();
         }
 
@@ -31,7 +31,7 @@ public class TrekkingController {
 
     @PostMapping("/addMountain")
     public ResponseEntity<String>create(@Valid @RequestBody Mountain mountain) {
-        trekkingService.savePerson(mountain);
+        trekkingService.saveMountain(mountain);
         return new ResponseEntity<>("Mountain added successfully", HttpStatus.OK);
     }
 }

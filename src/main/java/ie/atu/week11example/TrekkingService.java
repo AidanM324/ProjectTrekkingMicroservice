@@ -11,13 +11,13 @@ public class TrekkingService {
     }
 
     // Placeholder method to save a person (add to Db in the next two weeks)
-    public void savePerson(Mountain mountain) {
+    public void saveMountain(Mountain mountain) {
         mountainRepository.save(mountain);
-        System.out.println("Person saved: " + mountain);
+        System.out.println("Mountain saved: " + mountain);
     }
 
     // Placeholder method to retrieve a person by employeeId
-    public Mountain getPersonByEmployeeId(String employeeId) {
+    public Mountain getMountainByMountainId(String mountainId) {
         // fetch data from a database in future lab
         // For simplicity, we return a dummy person here
         return new Mountain();
