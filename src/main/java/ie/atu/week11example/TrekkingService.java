@@ -2,6 +2,8 @@ package ie.atu.week11example;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TrekkingService {
     private MountainRepository mountainRepository;
@@ -10,6 +12,9 @@ public class TrekkingService {
         this.mountainRepository = mountainRepository;
     }
 
+    public List<Mountain> getAllCompanies() {
+        return mountainRepository.findAll();
+    }
     // Placeholder method to save a person (add to Db in the next two weeks)
     public void saveMountain(Mountain mountain) {
         mountainRepository.save(mountain);

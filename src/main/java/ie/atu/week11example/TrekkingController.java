@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("/trek")
 @RestController
 public class TrekkingController {
@@ -27,6 +29,18 @@ public class TrekkingController {
         }
 
         return ResponseEntity.ok(mountain);
+    }
+
+    @GetMapping("/getAllMountains")
+    public ResponseEntity<?> getAllCompanies() {
+
+        List<Mountain> companies = trekkingService.getAllCompanies();
+
+        if (companies == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(companies);
     }
 
     @PostMapping("/addMountain")
