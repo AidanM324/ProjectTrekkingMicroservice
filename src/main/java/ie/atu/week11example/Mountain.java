@@ -10,19 +10,23 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
-public class Person {
+public class Mountain {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     @NotBlank
-    private String name;
+    private String mountain;
 
-    @Min(18)
-    private int age;
+    @NotBlank
+    private String company;
+
+    @NotBlank
+    private int priceRange;
 
     @Email
     private String email;

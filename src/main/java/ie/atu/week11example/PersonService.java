@@ -11,15 +11,15 @@ public class PersonService {
     }
 
     // Placeholder method to save a person (add to Db in the next two weeks)
-    public void savePerson(Person person) {
-        personRepository.save(person);
-        System.out.println("Person saved: " + person);
+    public void savePerson(Mountain mountain) {
+        personRepository.save(mountain);
+        System.out.println("Person saved: " + mountain);
     }
 
     // Placeholder method to retrieve a person by employeeId
-    public Person getPersonByEmployeeId(String employeeId) {
+    public Mountain getPersonByEmployeeId(String employeeId) {
         // fetch data from a database in future lab
         // For simplicity, we return a dummy person here
-        return new Person();
+        return new Mountain();
     }
 }

@@ -20,18 +20,18 @@ public class PersonController {
             return ResponseEntity.badRequest().body("EmployeeId is invalid");
         }
 
-        Person person = personService.getPersonByEmployeeId(employeeId);
+        Mountain mountain = personService.getPersonByEmployeeId(employeeId);
 
-        if (person == null) {
+        if (mountain == null) {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(person);
+        return ResponseEntity.ok(mountain);
     }
 
     @PostMapping("/createPerson")
-    public ResponseEntity<String>create(@Valid @RequestBody Person person) {
-        personService.savePerson(person);
+    public ResponseEntity<String>create(@Valid @RequestBody Mountain mountain) {
+        personService.savePerson(mountain);
         return new ResponseEntity<>("Person created successfully", HttpStatus.OK);
     }
 }
