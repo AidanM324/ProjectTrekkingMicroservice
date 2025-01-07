@@ -32,15 +32,12 @@ public class Mountain {
     private String email;
 
     @NotBlank
-    private String title;
+    private String tripLength;
 
     @NotBlank
-    private String employeeId;
+    private String location;
 
     @NotBlank
-    private String position;
-
-    @NotBlank
-    private String department;
+    private String mountainRange;
 
 }

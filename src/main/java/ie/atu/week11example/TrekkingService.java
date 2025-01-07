@@ -3,16 +3,16 @@ package ie.atu.week11example;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonService {
-    private PersonRepository personRepository;
+public class TrekkingService {
+    private MountainRepository mountainRepository;
 
-    public PersonService(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public TrekkingService(MountainRepository mountainRepository) {
+        this.mountainRepository = mountainRepository;
     }
 
     // Placeholder method to save a person (add to Db in the next two weeks)
     public void savePerson(Mountain mountain) {
-        personRepository.save(mountain);
+        mountainRepository.save(mountain);
         System.out.println("Person saved: " + mountain);
     }
 
@@ -22,4 +22,5 @@ public class PersonService {
         // For simplicity, we return a dummy person here
         return new Mountain();
     }
+
 }
