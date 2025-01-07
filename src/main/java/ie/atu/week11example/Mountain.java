@@ -20,7 +20,7 @@ public class Mountain {
     private Long Id;
 
     @NotBlank
-    private String mountain;
+    private String mountainId;
 
     @NotBlank
     private String company;
