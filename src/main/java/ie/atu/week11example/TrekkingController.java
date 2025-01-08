@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @RequestMapping("/trek")
 @RestController
 public class TrekkingController {
@@ -17,13 +18,13 @@ public class TrekkingController {
         this.trekkingService = trekkingService;
     }
 
-    @GetMapping("/{mountainId}")
+    @GetMapping("/get/{mountainId}")
     public ResponseEntity<?> getMountain(@PathVariable String mountainId) {
         if (mountainId.isBlank()) {
             return ResponseEntity.badRequest().body("Mountain is invalid");
         }
 
-        Mountain mountain = trekkingService.getMountainByMountainId(mountainId);
+        List<Mountain> mountain = trekkingService.getMountainByMountainId(mountainId);
 
         if (mountainId == null) {
             return ResponseEntity.notFound().build();
@@ -32,7 +33,7 @@ public class TrekkingController {
         return ResponseEntity.ok(mountain);
     }
 
-    @GetMapping("/{mountainRange}")
+    @GetMapping("/find/{mountainRange}")
     public ResponseEntity<?> getMountainRange(@PathVariable String mountainRange) {
         if (mountainRange.isBlank()) {
             return ResponseEntity.badRequest().body("Mountain Range is invalid");

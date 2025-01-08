@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface MountainRepository extends JpaRepository<Mountain, Long> {
 
-    Mountain findByMountainId(String mountainId);
+    List<Mountain> findByMountainId(String mountainId);
 
     List<Mountain> findByMountainRange(String mountainRange);
 

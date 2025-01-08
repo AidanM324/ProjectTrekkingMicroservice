@@ -23,7 +23,7 @@ public class TrekkingService {
     }
 
     // Placeholder method to retrieve a person by employeeId
-    public Mountain getMountainByMountainId(String mountainId) {
+    public List<Mountain> getMountainByMountainId(String mountainId) {
         // fetch data from a database in future lab
         // For simplicity, we return a dummy person here
         return mountainRepository.findByMountainId(mountainId);
